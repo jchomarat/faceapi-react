@@ -3,12 +3,16 @@
 This is a small project to show case the use of Azure Cognitive service Face for face detection.
 
 With this sample, you can
-* Create "group" of persons
-* In each group, you can add person(s), along with a few photos of these persons
-* You can then train the group, prior to the recognition part
-* Finally, you can send a picture, and the AI will tell you if person(s) on the picture are "known" persons, i.e. part of the group - with the confidence level.
+* Create "groups" of persons
+* Add person(s) in a group, along with a few photos of these persons
+* Train the group before being able to detect faces
+* Send a picture, and the AI will tell you if candidate(s) on the picture are "known" persons, i.e. part of the group - with the confidence level.
 
-And for the fun, I made it with [Reactjs](https://reactjs.org/), using [Bootstrap react](https://react-bootstrap.github.io) for the components (also a *premiere* for me)
+And for the fun, I made it with [Reactjs](https://reactjs.org/), using [Bootstrap react](https://react-bootstrap.github.io) (also a *premiere* for me).
+
+I am using the following librairies, that I have found, and that were time saver:
+* [react-fetchino](https://www.npmjs.com/package/react-fetchino): allow to execute the JavaScript *fetch* command inside a component, dealing with the async loading time. Very powerfull!
+* [react-overlay-loader](https://www.npmjs.com/package/react-overlay-loader): a component that will actually display a highly customizable loader - even allowing to show full screen.
 
 # Installation
 
@@ -45,4 +49,6 @@ Open a browser, and navigate to [localhost:3000](https://localhost:3000)
 
 # Misc
 
-This is a sample project, provided under the MIT licence. Feel free to clone it and change it as you see fit.
+This is a sample project, provided under the **MIT licence**. It is not using the entire Face service capabilities. Please consult the [documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/face/) to see everything these APIs can do.
+
+And finally, feel free to clone it and change it as you see fit.
