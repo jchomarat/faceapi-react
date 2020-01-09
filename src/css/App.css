@@ -1,125 +1,85 @@
-.App {
-  text-align: center;
+.app-header-title {
+  background-color: #222;
+  height: 120px;
+  padding: 20px;
+  color: white;
 }
 
-.App-logo {
+.app-logo  {
   height: 80px;
 }
 
-.App-header {
-  background-color: lightgrey;
-  height: 150px;
-  padding: 20px;
+.app-header-body {
+  margin-top: 10px;
+}
+
+.col-header {
   color: black;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.App-body > div {
-  float: left;
-  width: 32%;
-  padding: 5px;
-}
-
-.colHeaders {
-  display: flex;
-  padding-left: 10px;
-}
-
-.colHeaders > img {
-  width: 30px;
-  height: 30px;
-  padding-left: 10px;
-  padding-top: 15px;
-  cursor: pointer;
-}
-
-.groupPersonItem {
-  float: left;
-  width: 85%;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border: 1px solid white;
-  padding: 3px;
-}
-
-.groupPersonItem > div {
-  padding-left: 20px;
-  font-size: 20px;
-  user-select: none;
-}
-
-.groupPersonItem > img {
-  width: 50px;
-}
-
-.groupPersonItem:hover {
+fieldset {
   border: 1px solid black;
 }
 
-.groupPersonActions {
+legend {
+  background-color: #222;
+  color: #fff;
+  padding: 3px 6px;
+  width: 180px;
+  margin-left: 10px;
+}
+
+.add-button {
+  cursor: pointer;
+}
+
+.action-but {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.group-list {
+  background-color: whitesmoke;
+  margin-bottom: 2px;
+}
+
+.group-list img {
   float: left;
+  cursor: pointer;
+}
+
+.group-list H5 {
+  padding-left: 7px;
+  float: left;
+  padding-top: 9px;
+  cursor: pointer;
+}
+
+.group-actions-button img{
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+.person-list {
+  background-color: whitesmoke;
+  margin-bottom: 2px;
   vertical-align: middle;
-  padding-top: 10px;
 }
 
-.groupPersonActions > img {
-  width: 15px;
-  cursor: pointer;
-}
-
-/* Clear floats after the columns */
-.groupPerson:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.add-btn {
+.person-list img {
   float: left;
-  margin-top: 40px;
-  padding-left: 10px;
-}
-
-.person {
-  text-align: left;
-  display: flex;
-  align-items: center;
   cursor: pointer;
-  border: 1px solid white;
-  padding: 3px;
+  vertical-align: middle;
+  margin-top: 5px;
 }
 
-.person > img {
-  width: 50px;
+.person-list H5 {
+  padding-left: 7px;
+  padding-top: 9px;
+  cursor: pointer;
 }
 
-.person > div {
-  padding-left: 10px;
-  font-size: 20px;
-  user-select: none;
-}
-
-.person > div > span {
-  padding-left: 5px;
-  font-size: 12px;
-  user-select: none;
-}
-
-.actions-btn > div {
-  margin: 5px;
-  width: 100%;
-}
-
-.actions-btn > div > input {
-  width: 80%;
+.person-actions-button img{
+  margin-top: 1px;
+  cursor: pointer;
 }

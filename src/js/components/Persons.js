@@ -11,7 +11,6 @@ import Fetchino from 'react-fetchino';
 import { Loader } from 'react-overlay-loader';
 import 'react-overlay-loader/styles.css';
 import '../../css/App.css';
-import CustomHeader from './common';
 
 class PersonActionDelete extends Component {
     constructor(props) {
@@ -243,36 +242,29 @@ class PersonsItmes extends Component {
 
     render() {
         return (
-            <Container>
-            {
-                this.props.persons.map((person) => (
+            this.props.persons.map((person) => 
+                <Container className="person-list">
                     <Row key={person.personId}>
                         <Col sm={10}>
-                            <Media>
-                                <img
-                                    width={50}
-                                    height={50}
-                                    className="mr-3"
-                                    src="img/person.png"
-                                    alt="Person"
-                                />
-                                <Media.Body>
-                                    <h5>{person.name}</h5>
-                                    <p>
-                                        {person.persistedFaceIds.length} pictures
-                                    </p>
-                                </Media.Body>
-                            </Media>
+                            <img
+                                width={44}
+                                height={44}
+                                src="img/person.png"
+                                alt="Person"
+                            />
+                            <h5>{person.name}</h5>
+                            <p>
+                                {person.persistedFaceIds.length} pictures
+                            </p>
                         </Col>
-                        <Col sm={2}>
+                        <Col sm={2} className="group-actions-button">
                             <PersonActionUpload onChanged={this.onChanged} person={person} personGroupId={this.props.personGroupId} />
                             <PersonActionDelete onChanged={this.onChanged} person={person} personGroupId={this.props.personGroupId} />
                             <PersonActionEdit onChanged={this.onChanged} person={person} personGroupId={this.props.personGroupId} />
                         </Col>
                     </Row>
-                )
-            )}
-            </Container>
+                </Container>
+            )
         );
     }
 }
@@ -306,17 +298,9 @@ class Persons extends Component {
             !this.state.show ? (
                 <Fragment></Fragment>
             ) : (
-                <Container>
-                    <Row>
-                        <Col sm={8}>
-                            <CustomHeader title="Persons" />
-                        </Col>
-                        <Col sm={4}>
-                            <AddPerson onChanged={this.onChanged} personGroupId={this.state.personGroupId} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
+                <fieldset className="col-header">
+                    <legend><AddPerson onChanged={this.onChanged} personGroupId={this.state.personGroupId} /> Persons</legend>
+                    <Fragment>
                         <Fetchino
                             url={url}
                             options={options}
@@ -328,9 +312,8 @@ class Persons extends Component {
                             </Fragment>
                             )}
                         />
-                        </Col>
-                    </Row>
-                </Container>
+                    </Fragment>
+                </fieldset>
             )
         );
     }
@@ -385,9 +368,9 @@ class AddPerson extends Component {
             <Fragment>
                 <img 
                     src="img/add.png" 
-                    width={32}
-                    height={32}
-                    className="mr-3"
+                    width={22}
+                    height={22}
+                    className="add-button"
                     alt="Add person" 
                     onClick={this.openModal} />
                 

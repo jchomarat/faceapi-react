@@ -6,7 +6,6 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
-import CustomHeader from './common';
 import { Loader } from 'react-overlay-loader';
 import ApiCalls from "../helpers/ApiCalls";
 import IdentificationHelper from "../helpers/IdentificationHelper";
@@ -32,23 +31,21 @@ class Actions extends Component {
             !this.state.show ? (
                 <Fragment></Fragment>
             ) : (
-                <Container>
-                    <Row>
-                        <Col>
-                            <CustomHeader title="Actions" />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <TrainGroup personGroupId={this.state.personGroupId} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Identify personGroupId={this.state.personGroupId} />
-                        </Col>
-                    </Row>
-                </Container>
+                <fieldset className="col-header">
+                    <legend>Actions</legend>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <TrainGroup personGroupId={this.state.personGroupId} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Identify personGroupId={this.state.personGroupId} />
+                            </Col>
+                        </Row>
+                    </Container>
+                </fieldset>
             )
         )
     }
@@ -152,7 +149,7 @@ class Identify extends Component {
 
         return (
             <Fragment>
-                <Button variant="primary" onClick={this.openModal}>Identify</Button>
+                <Button variant="primary" className="action-but" onClick={this.openModal}>Identify</Button>
                 <Modal show={this.state.modalOpen} onHide={this.closeModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>Upload a picture</Modal.Title>
@@ -253,7 +250,7 @@ class TrainGroup extends Component {
     render() {
         return (
             <Fragment>
-                <Button variant="primary" onClick={this.startTraining}>Train group</Button>
+                <Button variant="primary" className="action-but"  onClick={this.startTraining}>Train group</Button>
                 <Loader fullPage loading={this.state.showLoadingOverlay} text="Training in progress ..." 
                     containerStyle={{background: "rgba(255, 255, 255, 0.9)"}}/>
             </Fragment>

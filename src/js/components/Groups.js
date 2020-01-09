@@ -11,7 +11,6 @@ import ApiCalls from "../helpers/ApiCalls";
 import Fetchino from 'react-fetchino';
 import { Loader } from 'react-overlay-loader';
 import 'react-overlay-loader/styles.css';
-import CustomHeader from './common';
 
 class GroupPersonDelete extends Component {
     constructor(props) {
@@ -47,7 +46,6 @@ class GroupPersonDelete extends Component {
             <Fragment>
                 <img    width={16}
                         height={16}
-                        className="mr-3"
                         onClick={this.openModal}
                         src="img/delete.png" alt="delete" /> 
                 
@@ -122,7 +120,6 @@ class GroupPersonEdit extends Component {
             <Fragment>
                 <img    width={16}
                         height={16}
-                        className="mr-3"
                         onClick={this.openModal}
                         src="img/edit.png" alt="delete" /> 
                 
@@ -168,24 +165,18 @@ class GroupPersonsItems extends Component {
         const groups = this.props.groups
         return (
             groups.map((group) => 
-              <Container key={group.personGroupId}>
+              <Container key={group.personGroupId} className="group-list">
                   <Row>
                       <Col sm={10} onClick={(e) => this.onSelect(e, group.personGroupId)}>
-                        <Media>
-                            <img
-                                width={64}
-                                height={64}
-                                className="mr-3"
-                                src="img/groupPerson.png"
-                                alt="Group"
-                            />
-                            <Media.Body>
-                                <h5>{group.name}</h5>
-                                <p></p>
-                            </Media.Body>
-                        </Media>
+                        <img
+                            width={44}
+                            height={44}
+                            src="img/groupPerson.png"
+                            alt="Group"
+                        />
+                        <h5>{group.name}</h5>
                       </Col>
-                      <Col sm={2}>
+                      <Col sm={2} className="group-actions-button">
                             <GroupPersonDelete onChanged={this.onChanged} group={group}  />
                             <GroupPersonEdit onChanged={this.onChanged} group={group}  />
                       </Col>
@@ -220,34 +211,27 @@ class GroupPersons extends Component {
         };
 
         return (  
-            <Container>
-                <Row>
-                    <Col sm={8}>
-                        <CustomHeader title="Groups" />
-                    </Col>
-                    <Col sm={4}>
-                        <AddGRoupPerson onChanged={this.onChanged} />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                    <Fetchino
-                        url={url}
-                        options={options}
-                        render={({ loading, error, data }) => (
-                        <Fragment>
-                            {loading && <Loader loading containerStyle={{background: "rgba(255, 255, 255, 0.9)"}}/>}
-                            {error && <div>{error}</div>}
-                            {data && <GroupPersonsItems groups={data} 
-                                        onSelect={this.handleSelection} 
-                                        onChanged={this.onChanged}/>
-                            }
-                        </Fragment>
-                        )}
-                    />
-                    </Col>
-                </Row>
-            </Container>
+            <Fragment>
+                <fieldset className="col-header">
+                    <legend><AddGRoupPerson onChanged={this.onChanged} /> Groups</legend>
+                    <Fragment>
+                        <Fetchino
+                            url={url}
+                            options={options}
+                            render={({ loading, error, data }) => (
+                            <Fragment>
+                                {loading && <Loader loading containerStyle={{background: "rgba(255, 255, 255, 0.9)"}}/>}
+                                {error && <div>{error}</div>}
+                                {data && <GroupPersonsItems groups={data} 
+                                            onSelect={this.handleSelection} 
+                                            onChanged={this.onChanged}/>
+                                }
+                            </Fragment>
+                            )}
+                        />
+                    </Fragment>
+                </fieldset>
+            </Fragment>
         );
     }
 }
@@ -307,9 +291,9 @@ class AddGRoupPerson extends Component {
             <Fragment>
                 <img 
                     src="img/add.png" 
-                    width={32}
-                    height={32}
-                    className="mr-3"
+                    width={22}
+                    height={22}
+                    className="add-button"
                     alt="Add group"
                     onClick={this.openModal}   />
                 
