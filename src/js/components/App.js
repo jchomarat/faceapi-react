@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Image from 'react-bootstrap/Image'
 import Badge from 'react-bootstrap/Badge'
 import logo from '../../svg/logo.svg';
 import '../../css/App.css';
@@ -32,7 +31,7 @@ class App extends Component {
       <Container>
         <Row className="app-header-title">
           <Col sm={1}>
-              <img className="app-logo" src={logo} />
+              <img className="app-logo" alt="" src={logo} />
           </Col>
           <Col sm={11}>
             <h1 className="app-title">
