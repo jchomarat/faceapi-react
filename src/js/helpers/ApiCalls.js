@@ -100,7 +100,6 @@ class ApiCalls {
     }
 
     async PostImage(url, img) {
-        console.log(url);
         return fetch(url,
         {
             method: "POST",
